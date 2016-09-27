@@ -1,0 +1,5 @@
+package com.ct.simple.factoty.utils;
+
+public class StringUtils {
+
+}

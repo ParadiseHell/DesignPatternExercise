@@ -1,0 +1,28 @@
+package com.ct.simple.factoty.db;
+
+/**
+ * 推荐假数据库
+ * @author ChengTao
+ *
+ */
+public class RecommendDB {
+	//数据库实例
+	private static RecommendDB instance = null;
+	//姓名列表
+	
+	private RecommendDB(){
+		
+	}
+	/**
+	 * 获取数据库实体
+	 * @return
+	 */
+	public static RecommendDB getInstance() {
+		if (instance == null) {
+			synchronized (RecommendDB.class) {
+				instance = new RecommendDB();
+			}
+		}
+		return instance;
+	}
+}

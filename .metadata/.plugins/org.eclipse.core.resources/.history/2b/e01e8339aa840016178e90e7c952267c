@@ -1,0 +1,10 @@
+package com.ct.simple.factoty.db;
+
+/**
+ * ÍÆ¼ö½Ó¿Ú
+ * @author ChengTao
+ *
+ */
+public interface RecommendImpl {
+	abstract void recommend();
+}

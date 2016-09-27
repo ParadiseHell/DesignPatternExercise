@@ -1,0 +1,15 @@
+package com.ct.simple.factoty.main;
+
+/**
+ * 推荐主体类
+ * @author ChengTao
+ *
+ */
+public class RecommenfMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

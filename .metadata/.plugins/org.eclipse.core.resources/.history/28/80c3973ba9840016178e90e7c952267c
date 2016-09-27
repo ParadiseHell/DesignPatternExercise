@@ -1,0 +1,14 @@
+package com.ct.simple.factoty.utils;
+
+/**
+ * 字符创工具类
+ * @author ChengTao
+ *
+ */
+public class StringUtils {
+	
+	public static void print(String s) {
+		
+	}
+	
+}

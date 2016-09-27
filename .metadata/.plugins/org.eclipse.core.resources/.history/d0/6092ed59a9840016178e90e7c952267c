@@ -1,0 +1,35 @@
+package com.ct.simple.factoty.utils;
+
+/**
+ * 字符创工具类
+ * @author ChengTao
+ *
+ */
+public class StringUtils {
+	
+	/**
+	 * 
+	 * @param s
+	 */
+	public static void print(String s) {
+		
+	}
+	
+	/**
+	 * 
+	 * @param s
+	 */
+public static void println(String s) {
+		
+	}
+	
+/**
+ * 
+ * @param s
+ * @return
+ */
+	private boolean isStrNotNull(String s) {
+		
+	}
+	
+}

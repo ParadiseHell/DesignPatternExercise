@@ -1,0 +1,10 @@
+package com.ct.simple.factoty.entity;
+
+/**
+ * 人物实体
+ * @author ChengTao
+ *
+ */
+public class Person {
+
+}

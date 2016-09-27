@@ -1,0 +1,10 @@
+package com.ct.simple.factoty.db;
+
+/**
+ * 推荐抽象接口
+ * @author ChengTao
+ *
+ */
+public interface RecommendImpl {
+	
+}

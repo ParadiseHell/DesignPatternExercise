@@ -1,0 +1,10 @@
+package com.ct.simple.factoty.db;
+
+/**
+ * ÍÆ¼ö¼ÙÊý¾Ý¿â
+ * @author ChengTao
+ *
+ */
+public class RecommendDB {
+	
+}

@@ -1,0 +1,14 @@
+package com.ct.simple.factoty.main;
+
+/**
+ * 推荐主体类
+ * @author ChengTao
+ *
+ */
+public class RecommenfMain {
+	private String name = "小明"
+	public static void main(String[] args) {
+
+	}
+
+}

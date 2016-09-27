@@ -1,0 +1,10 @@
+package com.ct.simple.factoty.utils;
+
+/**
+ * 推荐工具类
+ * @author ChengTao
+ *
+ */
+public class RecommendUtils {
+
+}

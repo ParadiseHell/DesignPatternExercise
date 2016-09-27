@@ -1,0 +1,7 @@
+package com.ct.simple.factoty.people;
+
+import com.ct.simple.factoty.impl.RecommendImpl;
+
+public class TeacherRecommend implements RecommendImpl{
+
+}

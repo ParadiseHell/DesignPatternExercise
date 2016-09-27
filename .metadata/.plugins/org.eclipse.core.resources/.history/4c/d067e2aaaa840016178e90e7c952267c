@@ -1,0 +1,17 @@
+package com.ct.simple.factoty.people;
+
+import com.ct.simple.factoty.impl.RecommendImpl;
+
+/**
+ * ÄĞÉúÍÆ¼öÀà
+ * @author ChengTao
+ *
+ */
+public class BoyRecommend implements RecommendImpl{
+
+	@Override
+	public void recommend() {
+		
+	}
+	
+}

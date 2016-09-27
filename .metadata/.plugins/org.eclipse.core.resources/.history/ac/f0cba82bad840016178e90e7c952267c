@@ -1,0 +1,14 @@
+package com.ct.simple.factoty.utils;
+
+import com.ct.simple.factoty.impl.RecommendImpl;
+
+/**
+ * 推荐工具类
+ * @author ChengTao
+ *
+ */
+public class RecommendUtils {
+	public static RecommendImpl getRecommendObjectFromName(String name) {
+		
+	}
+}
