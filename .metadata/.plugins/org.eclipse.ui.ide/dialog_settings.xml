@@ -5,6 +5,7 @@
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\Study\School\DesignParttern\Factory"/>
 			<item value="D:\Study\School\Comparable"/>
 			<item value="D:\Study\School\StudentSort"/>
 			<item value="D:\Study\School\SimpleFactory"/>

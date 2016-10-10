@@ -2,22 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="remove" key="selection"/>
+		<item value="TAG_TV_CLASS" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="TV_TAG_CLASS"/>
+			<item value="TV_TAG_NAME"/>
 			<item value="remove"/>
 			<item value="arraycopy"/>
 			<item value="copyOf"/>
 			<item value="modC"/>
 			<item value="add"/>
 			<item value="abstract"/>
-			<item value="hasNext"/>
-			<item value="iterator"/>
 		</list>
 		<list key="replacehistory">
+			<item value="TAG_TV_CLASS"/>
+			<item value="TAG_tv_NAME"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="com.ct.simple.factoty.people.BoyRecommend"/>
 <fullyQualifiedTypeName name="com.ct.simple.factoty.people.GirlRecommend"/>
 <fullyQualifiedTypeName name="com.ct.simple.factoty.people.TeacherRecommend"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.ct.simple.factoty.impl.RecommendImpl"/>
 <fullyQualifiedTypeName name="com.ct.simple.factoty.utils.RecommendUtils"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
@@ -20,4 +19,9 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="a"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+<fullyQualifiedTypeName name="com.ct.factory.utils.StringUtils"/>
+<fullyQualifiedTypeName name="javax.swing.border.EmptyBorder"/>
+<fullyQualifiedTypeName name="com.ct.factory.base.AbstractTVFctory"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>
