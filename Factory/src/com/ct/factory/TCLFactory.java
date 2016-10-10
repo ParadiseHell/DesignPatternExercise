@@ -12,12 +12,12 @@ import com.ct.factory.utils.StringUtils;
  *
  */
 public class TCLFactory extends AbstractTVFctory {
+
 	// --------------³£Á¿
 	private final static String name = "TCL_Fctory";
 
-	@Override
-	public void setFactoryName() {
-		factoryName = name;
+	public TCLFactory() {
+		super(name);
 	}
 
 	@Override

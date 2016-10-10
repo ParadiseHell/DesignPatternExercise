@@ -14,7 +14,10 @@ public abstract class AbstractTVFctory implements TVFactory{
 	//生产电视的字符串
 	protected final static String productStr = " create a TV";
 	/**
-	 * 设置工厂的名字
+	 * 构造函数
+	 * @param name 工厂名字
 	 */
-	public abstract void setFactoryName();
+	public AbstractTVFctory(String name){
+		factoryName = name;
+	}
 }

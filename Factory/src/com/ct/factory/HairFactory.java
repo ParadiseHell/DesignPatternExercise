@@ -12,12 +12,12 @@ import com.ct.factory.utils.StringUtils;
  *
  */
 public class HairFactory extends AbstractTVFctory {
+
 	// -----------³£Á¿
 	private final static String name = "Hair_Fctory";
 
-	@Override
-	public void setFactoryName() {
-		factoryName = name;
+	public HairFactory() {
+		super(name);
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import com.ct.factory.impl.TVFactory;
@@ -20,11 +20,11 @@ import com.ct.factory.impl.TVFactory;
  */
 public class XMLUtils {
 	// ----------------常量
-	private final static String FACTORY_PACKAGE_PATH = "com.ct.factory";
+	private final static String FACTORY_PACKAGE_PATH = "com.ct.factory.";
 	private final static String CONFIG_PATH = "config.xml";
-	private final static String WRAP_TAG_NAME = "item";
-	/*private final static String TV_TAG_NAME = "TVName";
-	private final static String TV_TAG_CLASS = "TVClass";*/
+	private final static String TAG_WRAP_NAME = "TV";
+	private final static String TAG_tv_NAME = "TVName";
+	private final static String TAG_TV_CLASS = "TVClass";
 	// ------------------变量
 	private static DocumentBuilderFactory dbFactory = null;
 	private static DocumentBuilder builder = null;
@@ -32,27 +32,23 @@ public class XMLUtils {
 	/**
 	 * 根据电视名返回电视工厂类
 	 * 
-	 * @param tvName
+	 * @param TVName
 	 * @return
 	 * @throws ParserConfigurationException
 	 */
-	public static TVFactory getClassFromTVName(String tvName) throws Exception {
+	public static TVFactory getClassFromTVName(String TVName) throws Exception {
 		TVFactory factory = null;
 		initDocumentBuilderFactory();
 		Document doc = builder.parse(new File(CONFIG_PATH));
-		NodeList list = doc.getElementsByTagName(WRAP_TAG_NAME);
+		NodeList list = doc.getElementsByTagName(TAG_WRAP_NAME);
 		for (int i = 0; i < list.getLength(); i++) {
-			Node node = list.item(i);
-			if (node.hasChildNodes()) {
-				NodeList innerList = node.getChildNodes();
-				StringUtils.printlnString(innerList.item(0).getTextContent());
-				if (node.getNodeValue().equalsIgnoreCase(tvName)) {
-					node = list.item(i).getLastChild();
-					String className = node.getNodeValue();
-					@SuppressWarnings("rawtypes")
-					Class c = Class.forName(FACTORY_PACKAGE_PATH + className);
-					factory = (TVFactory) c.newInstance();
-				}
+			Element element = (Element) list.item(i);
+			String tvName = element.getElementsByTagName(TAG_tv_NAME).item(0).getTextContent();
+			if (tvName.equalsIgnoreCase(TVName)) {
+				String className = element.getElementsByTagName(TAG_TV_CLASS).item(0).getTextContent();
+				@SuppressWarnings("rawtypes")
+				Class c = Class.forName(FACTORY_PACKAGE_PATH + className);
+				factory = (TVFactory) c.newInstance();
 			}
 		}
 		return factory;

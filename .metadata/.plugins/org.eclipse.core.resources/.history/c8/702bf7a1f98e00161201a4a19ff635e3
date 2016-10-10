@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TVFactory>
+	<item>
+		<TVName>TCL</TVName>
+		<TVClass>TCLFactory</TVClass>
+	</item>
+	<item>
+		<TVName>Hair</TVName>
+		<TVClass>HairFactory</TVClass>
+	</item>
+</TVFactory>

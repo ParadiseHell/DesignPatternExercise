@@ -13,7 +13,7 @@ import com.ct.simple.factoty.utils.StringUtils;
  *
  */
 public class TeacherRecommend implements RecommendImpl {
-	private final List<String> recommendInfo = Arrays.asList("1.网球王子", "2.英雄联盟", "3.滑板");
+	private final List<String> recommendInfo = Arrays.asList("1.图书", "2.旅游", "3.学生动态");
 
 	@Override
 	public void recommend() {
