@@ -1,0 +1,90 @@
+package com.chengtao.entity;
+
+/**
+ * 复数类
+ * 
+ * @author ChengTao
+ *
+ */
+public class Complex {
+	private float real;
+	private float imaginary;
+
+	/**
+	 * 
+	 * @param real
+	 *            实部
+	 * @param imaginary
+	 *            虚部
+	 */
+	public Complex(float real, float imaginary) {
+		super();
+		this.real = real;
+		this.imaginary = imaginary;
+	}
+
+	public float getReal() {
+		return real;
+	}
+
+	public void setReal(float real) {
+		this.real = real;
+	}
+
+	public float getImaginary() {
+		return imaginary;
+	}
+
+	public void setImaginary(float imaginary) {
+		this.imaginary = imaginary;
+	}
+
+	/**
+	 * 拷贝方法
+	 */
+	@Override
+	public Complex clone() {
+		return new Complex(this.real, this.imaginary);
+	}
+
+	@Override
+	public String toString() {
+		String complexStr = "";
+		complexStr += this.real != 0 ? this.getReal() + ""
+				: "";
+		return this.real != 0 ? this.getReal() + ""
+				: "" + 
+				(this.imaginary > 0 ? " + " + this.getImaginary() + "i"
+				: this.imaginary < 0 ? " - " + (-this.getImaginary()) + "i" 
+				: "") + "";
+	}
+
+	/**
+	 * 复数加法
+	 * 
+	 * @param c
+	 *            一个复数
+	 * @return
+	 */
+	public Complex add(Complex c) {
+		return new Complex(this.real + c.real, this.imaginary + c.imaginary);
+	}
+
+	/**
+	 * 复数减法
+	 * 
+	 * @param c
+	 *            一个复数
+	 * @return
+	 */
+	public Complex div(Complex c) {
+		return new Complex(this.real - c.real, this.imaginary - c.imaginary);
+	}
+
+	/**
+	 * 显示复数
+	 */
+	public void displayComplex() {
+		System.out.println(this.toString());
+	}
+}

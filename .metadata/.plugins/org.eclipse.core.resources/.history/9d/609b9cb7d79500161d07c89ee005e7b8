@@ -1,0 +1,18 @@
+package com.chengtao.main;
+
+import com.chengtao.entity.Complex;
+import com.chengtao.entity.Polynomial;
+
+/**
+ * 原型模式 多项式主体类
+ * @author ChengTao
+ *
+ */
+public class PolynomialMain {
+	public static void main(String[] args) {
+		Complex a = new Complex(3, 2);
+		Complex b = new Complex(1, -5);
+		Polynomial p = new Polynomial('x', a,b);
+		System.out.println(p.toString());
+	}
+}

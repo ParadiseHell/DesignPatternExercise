@@ -18,10 +18,15 @@
 <fullyQualifiedTypeName name="com.ct.simple.factoty.utils.StringUtils"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="a"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
 <fullyQualifiedTypeName name="com.ct.factory.utils.StringUtils"/>
 <fullyQualifiedTypeName name="javax.swing.border.EmptyBorder"/>
 <fullyQualifiedTypeName name="com.ct.factory.base.AbstractTVFctory"/>
+<fullyQualifiedTypeName name="java.lang.Cloneable"/>
+<fullyQualifiedTypeName name="com.chengtao.entity.Complex"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.chengtao.main.PolynomialMain"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.chengtao.entity.Polynomial"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,160 @@
+package com.chengtao.entity;
+
+import java.util.ArrayList;
+
+/**
+ * 多项式类
+ * 
+ * @author ChengTao
+ *
+ */
+public class Polynomial {
+	/**
+	 * 多项式变量
+	 */
+	private char arg;
+	/**
+	 * 复数数组，用于记录多项式每一项
+	 */
+	private Complex[] complexs;
+	/**
+	 * 用于显示参数不同的多项式
+	 */
+	private ArrayList<Polynomial> differPolynomial;
+	/**
+	 * 当多项式变量不一样时，则新的多项式为 0
+	 */
+	private final static char DEFAULT_DIFFER_POLYNOMIAL_ARG = '0';
+	/**
+	 * 
+	 */
+	private final static Complex[] DEFAULT_NULL_COMPLEX = {};
+	/**
+	 * 
+	 * @param arg
+	 *            变量
+	 * @param complexs
+	 *            多个复数
+	 */
+	public Polynomial(char arg, Complex... complexs) {
+		this.arg = arg;
+		this.complexs = complexs;
+	}
+
+	@Override
+	public String toString() {
+		String polynomialStr = "";
+		for (int i = 0; i < complexs.length; i++) {
+			if (i != 0) {
+				polynomialStr += " + ";
+			}
+			if (!complexs[i].toString().equals("")) {
+				polynomialStr += "( " + complexs[i].toString() + " )"
+						+ (i > 0 ? (this.arg + (i > 1 ? "^" + i : "")) : "");
+			}
+		}
+		return polynomialStr;
+	}
+
+	/**
+	 * 拷贝方法
+	 */
+	@Override
+	public Polynomial clone() {
+		return new Polynomial(this.arg, this.complexs);
+	}
+
+	/**
+	 * 多项式加法
+	 * 
+	 * @param p
+	 */
+	public Polynomial add(Polynomial p) {
+		Polynomial newP = null;
+		// 判断变量是否相同
+		if (this.arg != p.arg) {// 为不同类型的多项式
+			newP = new Polynomial(DEFAULT_DIFFER_POLYNOMIAL_ARG,DEFAULT_NULL_COMPLEX);
+			// 判断当前变量是否为默认的DEFAULT_DIFFER_POLYNOMIAL_ARG
+			if (this.arg == DEFAULT_DIFFER_POLYNOMIAL_ARG) {// 当前多项式为参数不同的多项式
+				// 判断形参的变量是否为默认的DEFAULT_DIFFER_POLYNOMIAL_ARG
+				if (p.arg == DEFAULT_DIFFER_POLYNOMIAL_ARG) {// 形参为参数不同的多项式
+					
+				} else {// 形参为参数相同的多项式
+					
+				}
+			} else {// 当前多项式为相同参数的多项式
+				// 判断形参的变量是否为默认的DEFAULT_DIFFER_POLYNOMIAL_ARG
+				if (p.arg == DEFAULT_DIFFER_POLYNOMIAL_ARG) {// 形参为参数不同的多项式
+					
+				} else {// 形参为参数相同的多项式
+					
+				}
+			}
+		} else {// 为相同类型的多项式
+			newP = new Polynomial(this.arg, DEFAULT_NULL_COMPLEX);
+			ArrayList<Complex> cList = new ArrayList<>();
+			int oldComplexsLength = this.complexs.length;
+			int newComplexsLength = p.complexs.length;
+			int i = 0;
+			for ( ; i < oldComplexsLength; i++) {
+				if (i == newComplexsLength) {
+					break;
+				}
+				Complex c = this.complexs[i].add(p.complexs[i]);
+				cList.add(c);
+			}
+			//判断是否添加剩余
+			if (oldComplexsLength > newComplexsLength) {
+				while(i < oldComplexsLength){
+					cList.add(this.complexs[i]);
+					i++;
+				}
+			}else if (oldComplexsLength < newComplexsLength) {
+				while(i < newComplexsLength){
+					cList.add(p.complexs[i]);
+					i++;
+				}
+			}
+			newP.setComplexs((Complex[]) cList.toArray());
+		}
+		return newP;
+	}
+
+	/**
+	 * 设置复数数组
+	 * @param complexs
+	 */
+	private void setComplexs(Complex complexs) {
+		this.complexs = complexs;
+	}
+
+	/**
+	 * 添加新的多项式到集合中
+	 * 
+	 * @param P
+	 *            多项式
+	 * @return 新的多项式
+	 */
+	private Polynomial addDifferPolynomial(Polynomial P) {
+		Polynomial newDifferP = new Polynomial(DEFAULT_DIFFER_POLYNOMIAL_ARG, null);
+		if (this.differPolynomial == null) {
+			this.differPolynomial = new ArrayList<>();
+		}
+		return newDifferP;
+	}
+
+	/**
+	 * 显示多项式
+	 */
+	public void display() {
+		if (this.differPolynomial != null) {
+			String differStr = "";
+			for (int i = 0; i < this.differPolynomial.size(); i++) {
+				differStr += this.differPolynomial.get(i).toString();
+			}
+			System.out.println(differStr);
+		} else {
+			System.out.println(this.toString());
+		}
+	}
+}
