@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="新的多项式"/>
 			<item value="newIn"/>
 			<item value="froNa"/>
 			<item value="fromNa"/>
@@ -15,7 +16,6 @@
 			<item value="isFrom"/>
 			<item value="TV_TAG_CLASS"/>
 			<item value="TV_TAG_NAME"/>
-			<item value="remove"/>
 		</list>
 		<list key="replacehistory">
 			<item value="TAG_TV_CLASS"/>

@@ -6,7 +6,7 @@ package com.chengtao.entity;
  * @author ChengTao
  *
  */
-public class Complex {
+public class Complex implements Cloneable{
 	private float real;
 	private float imaginary;
 
@@ -54,13 +54,13 @@ public class Complex {
 			complexStr += this.getReal();
 			if (this.imaginary > 0) {
 				complexStr += " + " + this.getImaginary() + "i";
-			}else if (this.imaginary < 0) {
+			} else if (this.imaginary < 0) {
 				complexStr += " - " + (-1 * this.getImaginary()) + "i";
 			}
-		}else {
-			if (this.imaginary > 0 ) {
+		} else {
+			if (this.imaginary > 0) {
 				complexStr += this.getImaginary() + "i";
-			}else if (this.imaginary < 0) {
+			} else if (this.imaginary < 0) {
 				complexStr += " - " + (-1 * this.getImaginary()) + "i";
 			}
 		}
@@ -90,15 +90,41 @@ public class Complex {
 	}
 
 	/**
+	 * 复数乘法
+	 * 
+	 * @param c
+	 *            一个复数
+	 * @return
+	 */
+	public Complex multi(Complex c) {
+		return new Complex(((this.real * c.real) - (this.imaginary * c.imaginary)),
+				((this.imaginary * c.real) + (this.real * c.imaginary)));
+	}
+
+	/**
+	 * 复数除法
+	 * 
+	 * @param c
+	 *            一个复数
+	 * @return
+	 */
+	public Complex div(Complex c) throws DividendNotZero {
+		return new Complex(
+				((this.real * c.real + this.imaginary * c.imaginary) / (c.real * c.real + c.imaginary * c.imaginary)),
+				((this.imaginary * c.real + this.real * c.imaginary) / (c.real * c.real + c.imaginary * c.imaginary)));
+	}
+
+	/**
 	 * 显示复数
 	 */
 	public void displayComplex() {
 		System.out.println(this.toString());
 	}
-	
+
 	/**
 	 * 判断复数是否为0
-	 * @return 为 ? 0 true : false 
+	 * 
+	 * @return 为 ? 0 true : false
 	 */
 	public boolean isZero() {
 		if (this.real == 0 && this.imaginary == 0) {
@@ -106,4 +132,37 @@ public class Complex {
 		}
 		return false;
 	}
+
+	/**
+	 * 获取复数的相反数
+	 * 
+	 * @return
+	 */
+	public Complex getOppositeComplex() {
+		return new Complex((-1 * this.real), (-1 * this.imaginary));
+	}
+
+	/**
+	 * 自定义异常 被除数不能为0
+	 * 
+	 * @author ChengTao
+	 *
+	 */
+	class DividendNotZero extends Exception {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -6623924393564067784L;
+
+		public DividendNotZero() {
+			super();
+		}
+
+		public DividendNotZero(String message) {
+			super(message);
+		}
+
+	}
+
 }

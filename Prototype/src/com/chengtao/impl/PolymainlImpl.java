@@ -1,0 +1,28 @@
+package com.chengtao.impl;
+
+import com.chengtao.entity.Polynomial;
+
+/**
+ * 多项式接口
+ * @author ChengTao
+ *
+ */
+public interface PolymainlImpl {
+	/**
+	 * 运算法则枚举
+	 * 
+	 * @author ChengTao
+	 *
+	 */
+	 enum CalculateType {
+		/**
+		 * 加法
+		 */
+		ADD,
+		/**
+		 * 减法
+		 */
+		SUB
+	}
+	Polynomial calculatePolymail(Polynomial p, CalculateType calculateType);
+}
