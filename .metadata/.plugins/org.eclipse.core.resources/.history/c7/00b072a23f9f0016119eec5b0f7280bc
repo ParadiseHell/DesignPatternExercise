@@ -1,0 +1,32 @@
+package com.chengtao.impl;
+
+public interface BaseImpl extends Cloneable{
+	/**
+	 * 计算方法
+	 * @author ChengTao
+	 *
+	 */
+	enum CalculateType{
+		/**
+		 * 加法
+		 */
+		ADD,
+		/**
+		 * 减法
+		 */
+		SUB,
+		/**
+		 * 乘法
+		 */
+		MULTI,
+		/**
+		 * 除法
+		 */
+		DIV
+	}
+	
+	<T extends Object> T calulate(T obj);
+	<T extends Object> T sub(T obj);
+	<T extends Object> T add(T obj);
+	<T extends Object> T add(T obj);
+}

@@ -1,9 +1,0 @@
-package com.chengtao.main;
-
-public class PolynomialMain {
-
-	public static void main(String[] args) {
-		
-	}
-
-}

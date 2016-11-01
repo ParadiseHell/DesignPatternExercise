@@ -1,0 +1,15 @@
+package com.chengtao.impl;
+
+public interface BaseImpl extends Cloneable{
+	/**
+	 * º∆À„∑Ω∑®
+	 * @author ChengTao
+	 *
+	 */
+	enum CalculateType{
+		ADD,
+		SUB,
+		MULTI,
+		DIV
+	}
+}

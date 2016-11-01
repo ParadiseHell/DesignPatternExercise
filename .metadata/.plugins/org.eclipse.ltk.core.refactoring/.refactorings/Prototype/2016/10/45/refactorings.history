@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.chengtao.entity.Polynomail&apos; to &apos;Polynomial&apos;&#x0D;&#x0A;- Original project: &apos;NewPrototype&apos;&#x0D;&#x0A;- Original element: &apos;com.chengtao.entity.Polynomail&apos;&#x0D;&#x0A;- Renamed element: &apos;com.chengtao.entity.Polynomial&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Polynomail&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.chengtao.entity{Polynomail.java[Polynomail" matchStrategy="1" name="Polynomial" qualified="false" references="true" similarDeclarations="false" stamp="1477913195054" textual="false" version="1.0"/>
+</session>

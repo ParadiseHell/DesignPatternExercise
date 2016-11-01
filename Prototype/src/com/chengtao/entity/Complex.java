@@ -1,13 +1,21 @@
 package com.chengtao.entity;
 
-/**
- * 复数类
- * 
- * @author ChengTao
- *
- */
-public class Complex implements Cloneable{
+import java.io.Serializable;
+
+import com.chengtao.impl.BaseImpl;
+
+public class Complex implements BaseImpl, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2281397264960916488L;
+	/**
+	 * 实部
+	 */
 	private float real;
+	/**
+	 * 虚部
+	 */
 	private float imaginary;
 
 	/**
@@ -40,31 +48,12 @@ public class Complex implements Cloneable{
 	}
 
 	/**
-	 * 拷贝方法
+	 * 判断是否为0
+	 * 
+	 * @return
 	 */
-	@Override
-	public Complex clone() {
-		return new Complex(this.real, this.imaginary);
-	}
-
-	@Override
-	public String toString() {
-		String complexStr = "";
-		if (this.real != 0) {
-			complexStr += this.getReal();
-			if (this.imaginary > 0) {
-				complexStr += " + " + this.getImaginary() + "i";
-			} else if (this.imaginary < 0) {
-				complexStr += " - " + (-1 * this.getImaginary()) + "i";
-			}
-		} else {
-			if (this.imaginary > 0) {
-				complexStr += this.getImaginary() + "i";
-			} else if (this.imaginary < 0) {
-				complexStr += " - " + (-1 * this.getImaginary()) + "i";
-			}
-		}
-		return complexStr;
+	boolean isZero() {
+		return real == 0 && imaginary == 0;
 	}
 
 	/**
@@ -75,7 +64,7 @@ public class Complex implements Cloneable{
 	 * @return
 	 */
 	public Complex add(Complex c) {
-		return new Complex(this.real + c.real, this.imaginary + c.imaginary);
+		return calculate(c, CalculateType.ADD);
 	}
 
 	/**
@@ -85,8 +74,8 @@ public class Complex implements Cloneable{
 	 *            一个复数
 	 * @return
 	 */
-	public Complex sub(Complex c) {
-		return new Complex(this.real - c.real, this.imaginary - c.imaginary);
+	public Complex subtract(Complex c) {
+		return calculate(c, CalculateType.SUB);
 	}
 
 	/**
@@ -96,73 +85,113 @@ public class Complex implements Cloneable{
 	 *            一个复数
 	 * @return
 	 */
-	public Complex multi(Complex c) {
-		return new Complex(((this.real * c.real) - (this.imaginary * c.imaginary)),
-				((this.imaginary * c.real) + (this.real * c.imaginary)));
+	public Complex multiply(Complex c) {
+		return calculate(c, CalculateType.MULTI);
 	}
 
-	/**
-	 * 复数除法
-	 * 
-	 * @param c
-	 *            一个复数
-	 * @return
-	 */
-	public Complex div(Complex c) throws DividendNotZero {
-		return new Complex(
-				((this.real * c.real + this.imaginary * c.imaginary) / (c.real * c.real + c.imaginary * c.imaginary)),
-				((this.imaginary * c.real + this.real * c.imaginary) / (c.real * c.real + c.imaginary * c.imaginary)));
-	}
-
-	/**
-	 * 显示复数
-	 */
-	public void displayComplex() {
-		System.out.println(this.toString());
-	}
-
-	/**
-	 * 判断复数是否为0
-	 * 
-	 * @return 为 ? 0 true : false
-	 */
-	public boolean isZero() {
-		if (this.real == 0 && this.imaginary == 0) {
-			return true;
-		}
-		return false;
-	}
 
 	/**
 	 * 获取复数的相反数
 	 * 
 	 * @return
 	 */
-	public Complex getOppositeComplex() {
-		return new Complex((-1 * this.real), (-1 * this.imaginary));
+	public Complex negative() {
+		return calculate(this, CalculateType.NEG);
+	}
+	
+	/**
+	 * 
+	 * @param strComplex
+	 * @return
+	 */
+	public static Complex parseComplex(String strComplex){
+		Complex complex = null;
+		String complexStrs = strComplex.replace(" ", "");
+		if (complexStrs.indexOf('i') != -1) {// 有虚数部分
+			if (complexStrs.indexOf("+") != -1) {
+				try {
+					complex = new Complex(Float.parseFloat(complexStrs.substring(0, complexStrs.indexOf("+"))),
+							Float.parseFloat(
+									complexStrs.substring(complexStrs.indexOf("+") + 1, complexStrs.length() - 1)));
+				} catch (Exception e) {
+					System.out.println("复数字符串有问题");
+				}
+			} else if (complexStrs.indexOf("-") != -1) {
+				try {
+					complex = new Complex(Float.parseFloat(complexStrs.substring(0, complexStrs.indexOf("-"))),
+
+							(-1 * Float.parseFloat(complexStrs.substring(complexStrs.indexOf("-") + 1,
+									complexStrs.length() - 1))));
+				} catch (Exception e) {
+					System.out.println("复数字符串有问题");
+				}
+			}
+		} else {// 无虚数部分
+			try {
+				complex = new Complex(Float.parseFloat(complexStrs), 0);
+			} catch (Exception e) {
+				System.out.println("复数字符串有问题");
+			} finally {
+				complex = null;
+			}
+		}
+		return complex;
+	}
+	
+	/**
+	 * 拷贝方法
+	 */
+	@Override
+	public Complex clone() {
+		return calculate(this, CalculateType.COPY);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T calculate(Object obj, CalculateType type) throws NullPointerException {
+		Complex complex = null;
+		if (obj instanceof Complex) {
+			Complex c = (Complex) obj;
+			switch (type) {
+			case ADD:
+				complex = new Complex(this.real + c.real, this.imaginary + c.imaginary);
+				break;
+			case SUB:
+				complex = new Complex(this.real - c.real, this.imaginary - c.imaginary);
+				break;
+			case MULTI:
+				complex = new Complex(((this.real * c.real) - (this.imaginary * c.imaginary)),
+						((this.imaginary * c.real) + (this.real * c.imaginary)));
+				break;
+			case NEG:
+				complex = new Complex((-1 * this.real), (-1 * this.imaginary));
+				break;
+			case COPY:
+				complex = new Complex(this.real, this.imaginary);
+				break;
+			default:
+				break;
+			}
+		}
+		return (T) complex;
+	}
+	
+	@Override
+	public String toString() {
+		String complexStr = "";
+		complexStr += this.getReal();
+		if (this.imaginary >= 0) {
+			complexStr += " + " + this.getImaginary() + "i";
+		} else if (this.imaginary < 0) {
+			complexStr += " - " + (-1 * this.getImaginary()) + "i";
+		}
+		return complexStr;
 	}
 
 	/**
-	 * 自定义异常 被除数不能为0
-	 * 
-	 * @author ChengTao
-	 *
+	 * 显示复数
 	 */
-	class DividendNotZero extends Exception {
-
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = -6623924393564067784L;
-
-		public DividendNotZero() {
-			super();
-		}
-
-		public DividendNotZero(String message) {
-			super(message);
-		}
-
+	public void display() {
+		System.out.println(this.toString());
 	}
-
 }
