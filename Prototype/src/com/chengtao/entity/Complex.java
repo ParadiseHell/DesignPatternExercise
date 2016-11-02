@@ -108,7 +108,7 @@ public class Complex implements BaseImpl, Serializable {
 	}
 	
 	/**
-	 * 
+	 * 将复数字符串转化成复数对象
 	 * @param strComplex
 	 * @return
 	 */
@@ -124,11 +124,11 @@ public class Complex implements BaseImpl, Serializable {
 				} catch (Exception e) {
 					System.out.println("复数字符串有问题");
 				}
-			} else if (complexStrs.indexOf("-") != -1) {
+			} else if (complexStrs.lastIndexOf("-") != -1) {
 				try {
-					complex = new Complex(Double.parseDouble(complexStrs.substring(0, complexStrs.indexOf("-"))),
+					complex = new Complex(Double.parseDouble(complexStrs.substring(0, complexStrs.lastIndexOf("-"))),
 
-							(-1 * Double.parseDouble(complexStrs.substring(complexStrs.indexOf("-") + 1,
+							(-1 * Double.parseDouble(complexStrs.substring(complexStrs.lastIndexOf("-") + 1,
 									complexStrs.length() - 1))));
 				} catch (Exception e) {
 					System.out.println("复数字符串有问题");

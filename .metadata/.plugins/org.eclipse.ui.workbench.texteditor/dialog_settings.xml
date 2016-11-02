@@ -2,22 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="newIn" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="Double" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Float"/>
+			<item value="float"/>
 			<item value="新的多项式"/>
 			<item value="newIn"/>
 			<item value="froNa"/>
 			<item value="fromNa"/>
 			<item value="from"/>
 			<item value="isFrom"/>
-			<item value="TV_TAG_CLASS"/>
-			<item value="TV_TAG_NAME"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Double"/>
+			<item value="double"/>
 			<item value="TAG_TV_CLASS"/>
 			<item value="TAG_tv_NAME"/>
 		</list>

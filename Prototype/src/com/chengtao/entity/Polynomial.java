@@ -29,8 +29,8 @@ public class Polynomial implements BaseImpl, Serializable {
 	/**
 	 * 正则表达式，用于将多项式的参数的系数分离出来
 	 */
-	private static final String REGEX_POLYNOMIAL_NUMBER = "\\" + "+{0,1}\\" + "(\\" + "-{0,1}[0-9]+\\" + "-{0,1}\\"
-			+ "+{0,1}[0-9]+i\\" + ")[a-z]\\" + "^";
+	private static final String REGEX_POLYNOMIAL_NUMBER = "\\" + "+{0,1}\\" + "(\\" + "-{0,1}[0-9]+\\"
+			+ ".{0,1}[0-9]{0,}\\" + "-{0,1}\\" + "+{0,1}[0-9]+\\" + ".{0,1}[0-9]{0,}i\\" + ")[a-z]\\" + "^";
 	// -----------------变量
 	/**
 	 * 变量
@@ -77,8 +77,7 @@ public class Polynomial implements BaseImpl, Serializable {
 		// 获取复数字符串数组
 		String complexStr[] = strPolynomial.replace("(", "").replace(" ", "").split(REGEX_COMPLEX_ARR);
 		// 获取变量系数数组
-		String[] complexPos = strPolynomial.replace(" ", "")
-				.split(REGEX_POLYNOMIAL_NUMBER);
+		String[] complexPos = strPolynomial.replace(" ", "").split(REGEX_POLYNOMIAL_NUMBER);
 		// 获取多项式复数数组的长度
 		int complexLength = 0;
 		for (int i = 0; i < complexPos.length; i++) {
