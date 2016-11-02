@@ -12,11 +12,11 @@ public class Complex implements BaseImpl, Serializable {
 	/**
 	 * 实部
 	 */
-	private float real;
+	private double real;
 	/**
 	 * 虚部
 	 */
-	private float imaginary;
+	private double imaginary;
 
 	/**
 	 * 
@@ -25,25 +25,25 @@ public class Complex implements BaseImpl, Serializable {
 	 * @param imaginary
 	 *            虚部
 	 */
-	public Complex(float real, float imaginary) {
+	public Complex(double real, double imaginary) {
 		super();
 		this.real = real;
 		this.imaginary = imaginary;
 	}
 
-	public float getReal() {
+	public double getReal() {
 		return real;
 	}
 
-	public void setReal(float real) {
+	public void setReal(double real) {
 		this.real = real;
 	}
 
-	public float getImaginary() {
+	public double getImaginary() {
 		return imaginary;
 	}
 
-	public void setImaginary(float imaginary) {
+	public void setImaginary(double imaginary) {
 		this.imaginary = imaginary;
 	}
 
@@ -100,6 +100,14 @@ public class Complex implements BaseImpl, Serializable {
 	}
 	
 	/**
+	 * 拷贝方法
+	 */
+	@Override
+	public Complex clone() {
+		return calculate(this, CalculateType.COPY);
+	}
+	
+	/**
 	 * 
 	 * @param strComplex
 	 * @return
@@ -110,17 +118,17 @@ public class Complex implements BaseImpl, Serializable {
 		if (complexStrs.indexOf('i') != -1) {// 有虚数部分
 			if (complexStrs.indexOf("+") != -1) {
 				try {
-					complex = new Complex(Float.parseFloat(complexStrs.substring(0, complexStrs.indexOf("+"))),
-							Float.parseFloat(
+					complex = new Complex(Double.parseDouble(complexStrs.substring(0, complexStrs.indexOf("+"))),
+							Double.parseDouble(
 									complexStrs.substring(complexStrs.indexOf("+") + 1, complexStrs.length() - 1)));
 				} catch (Exception e) {
 					System.out.println("复数字符串有问题");
 				}
 			} else if (complexStrs.indexOf("-") != -1) {
 				try {
-					complex = new Complex(Float.parseFloat(complexStrs.substring(0, complexStrs.indexOf("-"))),
+					complex = new Complex(Double.parseDouble(complexStrs.substring(0, complexStrs.indexOf("-"))),
 
-							(-1 * Float.parseFloat(complexStrs.substring(complexStrs.indexOf("-") + 1,
+							(-1 * Double.parseDouble(complexStrs.substring(complexStrs.indexOf("-") + 1,
 									complexStrs.length() - 1))));
 				} catch (Exception e) {
 					System.out.println("复数字符串有问题");
@@ -128,24 +136,14 @@ public class Complex implements BaseImpl, Serializable {
 			}
 		} else {// 无虚数部分
 			try {
-				complex = new Complex(Float.parseFloat(complexStrs), 0);
+				complex = new Complex(Double.parseDouble(complexStrs), 0);
 			} catch (Exception e) {
 				System.out.println("复数字符串有问题");
-			} finally {
-				complex = null;
 			}
 		}
 		return complex;
 	}
 	
-	/**
-	 * 拷贝方法
-	 */
-	@Override
-	public Complex clone() {
-		return calculate(this, CalculateType.COPY);
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T calculate(Object obj, CalculateType type) throws NullPointerException {

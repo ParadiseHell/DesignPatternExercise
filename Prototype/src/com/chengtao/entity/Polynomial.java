@@ -16,11 +16,22 @@ import com.chengtao.impl.BaseImpl;
  *
  */
 public class Polynomial implements BaseImpl, Serializable {
-
+	// ------------------常量
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5607289628151831201L;
+	/**
+	 * 正则表达式，用于将多项式字符串分成复数数组<br>
+	 * 前提：多项式字符串的左括号需要先去除
+	 */
+	private static final String REGEX_COMPLEX_ARR = "\\" + ")[a-z]\\" + "^[0-9]+\\" + "+{0,1}";
+	/**
+	 * 正则表达式，用于将多项式的参数的系数分离出来
+	 */
+	private static final String REGEX_POLYNOMIAL_NUMBER = "\\" + "+{0,1}\\" + "(\\" + "-{0,1}[0-9]+\\" + "-{0,1}\\"
+			+ "+{0,1}[0-9]+i\\" + ")[a-z]\\" + "^";
+	// -----------------变量
 	/**
 	 * 变量
 	 */
@@ -64,11 +75,10 @@ public class Polynomial implements BaseImpl, Serializable {
 	public static Polynomial parsePolynomial(String strPolynomial) {
 		Polynomial polynomial = null;
 		// 获取复数字符串数组
-		String complexStr[] = strPolynomial.replace("(", "").replace(" ", "")
-				.split("\\" + ")[a-z]\\" + "^[0-9]*[\\" + "+]?");
+		String complexStr[] = strPolynomial.replace("(", "").replace(" ", "").split(REGEX_COMPLEX_ARR);
 		// 获取变量系数数组
 		String[] complexPos = strPolynomial.replace(" ", "")
-				.split("(\\" + "+{0,1}\\" + "(\\" + "-?[0-9]*\\" + "+?\\" + "-?[0-9]*i\\" + ")[a-z]\\" + "^)+");
+				.split(REGEX_POLYNOMIAL_NUMBER);
 		// 获取多项式复数数组的长度
 		int complexLength = 0;
 		for (int i = 0; i < complexPos.length; i++) {
@@ -224,11 +234,12 @@ public class Polynomial implements BaseImpl, Serializable {
 					String key = entry.getKey();
 					List<TwoComplexPosition> list = entry.getValue();
 					for (TwoComplexPosition twoComplexPosition : list) {
-						newComplexs[Integer.parseInt(key)] = newComplexs[Integer.parseInt(key)].add(complexs[twoComplexPosition.posFirst]
-								.multiply(afterPolynomail.complexs[twoComplexPosition.posSecond]));
+						newComplexs[Integer.parseInt(key)] = newComplexs[Integer.parseInt(key)]
+								.add(complexs[twoComplexPosition.posFirst]
+										.multiply(afterPolynomail.complexs[twoComplexPosition.posSecond]));
 					}
 				}
-				//生成新的多项式
+				// 生成新的多项式
 				polynomail = new Polynomial(this.variable, newComplexs);
 				break;
 			case TRIM:
@@ -332,6 +343,7 @@ public class Polynomial implements BaseImpl, Serializable {
 
 	/**
 	 * 记录两个复数数组乘积系数相等的每个复数的位置
+	 * 
 	 * @author ChengTao
 	 *
 	 */
