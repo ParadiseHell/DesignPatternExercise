@@ -1,0 +1,64 @@
+package com.chengtao.base;
+
+import com.chengtao.impl.BinomialIterator;
+
+/**
+ * 二项式分布概率类<br/>
+ * 只针对概率为1/2，且成功次数为总次数的一半
+ * @author ChengTao
+ *
+ */
+public class Binomial implements BinomialIterator{
+	private int successNum;
+	private int totalNum;
+	private int upNum = 0;
+	private int belowNum = 1;
+	
+	public Binomial(int successNum) throws NumberToBigException {
+		if (successNum <= Integer.MAX_VALUE / 2) {
+			this.successNum = successNum;
+			totalNum = 2 * successNum;
+			upNum = successNum + 1;
+		}else {
+			throw new NumberToBigException();
+		}
+	}
+
+	@Override
+	public boolean hasNext() {
+		return upNum < totalNum;
+	}
+
+	@Override
+	public float next() {
+		float result = 1;
+		int upResult = 1;
+		int belowResult = 1;
+		for (int i = upNum; i <= totalNum; i++) {
+			upResult *= i;
+			if (upResult != Integer.MAX_VALUE) {
+				
+			}
+		}
+		for (int j = 1; j <= successNum; j++) {
+			
+		}
+		
+		return result;
+	}
+	
+	
+	private class NumberToBigException extends Exception{
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1483277992636961845L;
+
+		@Override
+		public void printStackTrace() {
+			System.out.println("输入的数字太大了......");
+		}
+		
+	}
+}

@@ -1,0 +1,17 @@
+package com.chengtao.base;
+
+import com.chengtao.impl.BinomialIterator;
+
+public class Binomial implements BinomialIterator{
+
+	@Override
+	public boolean hasNext() {
+		return false;
+	}
+
+	@Override
+	public float next() {
+		return 0;
+	}
+	
+}

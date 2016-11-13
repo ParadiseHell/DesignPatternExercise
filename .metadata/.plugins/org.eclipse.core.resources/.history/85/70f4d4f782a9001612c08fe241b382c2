@@ -1,0 +1,10 @@
+package com.chengtao.main;
+
+public class BinomailMain {
+	//------------³£Á¿
+	private static final String tipStr = "";
+	public static void main(String[] args) {
+		
+	}
+
+}

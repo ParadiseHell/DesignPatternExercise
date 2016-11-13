@@ -1,0 +1,7 @@
+package com.chengtao.base;
+
+import com.chengtao.impl.BinomialIterator;
+
+public class Binomial implements BinomialIterator{
+	
+}

@@ -1,0 +1,10 @@
+package com.chengtao.main;
+
+public class BinomailMain {
+	//------------常量
+	private static final String tipStr = "请输入二项分布试验总试验次数的一半m.";
+	public static void main(String[] args) {
+		
+	}
+
+}
