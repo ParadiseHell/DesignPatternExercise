@@ -1,0 +1,7 @@
+package com.chengtao.entity;
+
+import com.chengtao.impl.UDPReceiverProtocol;
+
+public class UDPProtol implements UDPReceiverProtocol{
+
+}

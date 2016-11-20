@@ -1,0 +1,27 @@
+package com.chengtao.receiver;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public class CharReceiver {
+	private DatagramSocket socket = null;
+
+	public CharReceiver(int port) {
+		try {
+			socket = new DatagramSocket(port);
+		} catch (SocketException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void listen() {
+		
+	}
+
+	public char receive() {
+		char reciveChar = '\0';
+		return reciveChar;
+	}
+}

@@ -1,0 +1,65 @@
+package com.chengtao.receiver;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+import com.chengtao.impl.RecieverImpl;
+
+public class CharReceiver {
+	private DatagramSocket socket = null;
+	private DatagramPacket packet = null;
+	private RecieverImpl reciever = null;
+	private int charPos = 0;
+
+	public CharReceiver(int port) {
+		try {
+			socket = new DatagramSocket(port);
+			byte buffer[] = new byte[256];
+			packet = new DatagramPacket(buffer, buffer.length);
+		} catch (SocketException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void listen() {
+		if (reciever == null) {
+			throw new NullPointerException(){
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = 4847366023113572509L;
+
+				@Override
+				public String getMessage() {
+					return "Œ¥≥ı ºªØRecieverImpl";
+				}
+			};
+		} else {
+			try {
+				socket.receive(packet);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				socket.close();
+				reciever.end();
+			}
+		}
+
+	}
+
+	public void setReciever(RecieverImpl reciever) {
+		this.reciever = reciever;
+	}
+
+	public char receive() {
+		char reciveChar = '\0';
+		reciveChar = (char) packet.getData()[charPos];
+		charPos++;
+		if (reciveChar == '\0') {
+			charPos = 0;
+		}
+		return reciveChar;
+	}
+}

@@ -1,0 +1,17 @@
+package com.chengtao.main;
+
+import com.chengtao.entity.UDPProtol;
+import com.chengtao.receiver.CharReceiver;
+import com.chengtao.receiver.LineReceiver;
+
+public class Receiver {
+	public static void main(String[] args) {
+		UDPProtol protocol = new UDPProtol();
+		LineReceiver lr = new LineReceiver(new CharReceiver(6102));
+		lr.setUDPReceiverProtocol(protocol);
+		String pattern = "wz";
+		int count = lr.receivePattern(pattern);
+		System.out.println("共收到模式串 " + pattern + " " + count + " 次");
+
+	}
+}

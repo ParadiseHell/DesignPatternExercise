@@ -1,0 +1,6 @@
+package com.chengtao.impl;
+
+public interface RecieverImpl {
+	void lineEnd();
+	void end();
+}

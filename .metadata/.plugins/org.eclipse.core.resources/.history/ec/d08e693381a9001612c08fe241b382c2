@@ -1,5 +1,0 @@
-package com.chengtao.base;
-
-public abstract class AbstractBinomial {
-	
-}

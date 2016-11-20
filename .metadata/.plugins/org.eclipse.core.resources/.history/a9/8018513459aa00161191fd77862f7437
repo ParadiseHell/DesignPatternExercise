@@ -1,0 +1,7 @@
+package com.chengtao.impl;
+
+public interface UDPReceiverProtocol {
+	char getLineChar();
+	char getEndChar();
+	String getIPAdrress();
+}
