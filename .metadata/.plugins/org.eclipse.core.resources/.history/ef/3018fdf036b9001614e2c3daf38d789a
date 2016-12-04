@@ -1,0 +1,32 @@
+package com.chengtao.utils;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.chengtao.entity.ChinaNode;
+
+/**
+ * the utils to read file to get city info
+ * @author ChengTao
+ *
+ */
+public class FileUtils {
+	private static ArrayList<ChinaNode> chinaNodes = null;
+	/**
+	 * read three item info from file
+	 * @param filePath the path of the file
+	 */
+	public static ArrayList<ChinaNode> readTreeInfoFromFile(String filePath) {
+		if (chinaNodes == null) {
+			synchronized (FileUtils.class) {
+				if (chinaNodes == null) {
+					chinaNodes = new ArrayList<>();
+				}
+			}
+		}
+		return chinaNodes;
+	}
+}

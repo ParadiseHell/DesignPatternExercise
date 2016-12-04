@@ -1,0 +1,10 @@
+package com.chengtao.main;
+
+import com.chengtao.commad.Command;
+
+public class Composition {
+	
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,14 @@
+package com.chengtao.main;
+
+import java.util.ArrayList;
+
+import com.chengtao.entity.ChinaNode;
+import com.chengtao.utils.FileUtils;
+import com.chengtao.utils.NodeUtils;
+
+public class Composition {
+	
+	public static void main(String[] args) {
+		
+	}
+}

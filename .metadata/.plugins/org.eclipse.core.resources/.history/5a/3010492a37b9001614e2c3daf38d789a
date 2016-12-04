@@ -1,0 +1,12 @@
+package com.chengtao.main;
+
+
+public class Composition {
+
+	public static void main(String[] args) {
+		CompositeIterator iterator = NodeUtils.getNodeIterator(FileUtils.readTreeInfoFromFile("TreeInfo.txt"));
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next().getSelfName());
+		}
+	}
+}

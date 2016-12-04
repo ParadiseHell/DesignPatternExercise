@@ -1,0 +1,17 @@
+package com.chengtao.main;
+
+import java.util.ArrayList;
+
+import com.chengtao.entity.ChinaNode;
+import com.chengtao.utils.FileUtils;
+import com.chengtao.utils.NodeUtils;
+
+public class Composition {
+	private final static String cmds[] = {"layer","depth","children",
+			"ancestors","subtree","q"};
+	public static void main(String[] args) {
+		ArrayList<ChinaNode> nodes = FileUtils.readTreeInfoFromFile("TreeInfo.txt");
+		@SuppressWarnings("unused")
+		ChinaNode root = NodeUtils.initNode(nodes);
+	}
+}

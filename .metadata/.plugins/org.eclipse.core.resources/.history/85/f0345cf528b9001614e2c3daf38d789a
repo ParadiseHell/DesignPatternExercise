@@ -1,0 +1,23 @@
+package com.chengtao.commad;
+
+import com.chengtao.iterator.CompositeIterator;
+
+/**
+ * 
+ * @author ChengTao
+ *
+ */
+public abstract class AbsCommand {
+	protected static CompositeIterator iterator = null;
+	
+	protected AbsCommand(int a){
+		initIterator();
+	}
+	
+	private void initIterator() {
+		if (iterator == null) {
+			
+		}
+	}
+	public abstract void execute(String arg);
+}

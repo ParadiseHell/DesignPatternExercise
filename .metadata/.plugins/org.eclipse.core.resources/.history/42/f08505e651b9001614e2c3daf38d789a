@@ -1,0 +1,16 @@
+package com.chengtao.commad;
+
+import com.chengtao.iterator.CompositeIterator;
+import com.chengtao.utils.FileUtils;
+import com.chengtao.utils.NodeUtils;
+
+/**
+ * 
+ * @author ChengTao
+ *
+ */
+public abstract class AbsCommand {
+	protected CompositeIterator iterator = NodeUtils.getNodeIterator(FileUtils.readTreeInfoFromFile());
+
+	public abstract void execute(String arg);
+}

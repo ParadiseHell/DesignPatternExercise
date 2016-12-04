@@ -1,5 +1,0 @@
-package com.chengtao.impl;
-
-public interface RecieverImpl {
-	void end();
-}

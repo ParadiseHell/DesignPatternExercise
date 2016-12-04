@@ -1,0 +1,11 @@
+package com.chengtao.commad;
+
+import com.chengtao.iterator.CompositeIterator;
+
+public class LayerCommand extends AbsCommand{
+
+	@Override
+	public void execute(String arg) {
+		CompositeIterator iterator = 
+	}
+}

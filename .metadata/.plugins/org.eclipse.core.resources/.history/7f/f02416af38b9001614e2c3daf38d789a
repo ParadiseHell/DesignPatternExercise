@@ -1,0 +1,12 @@
+package com.chengtao.main;
+
+import com.chengtao.iterator.CompositeIterator;
+import com.chengtao.utils.FileUtils;
+import com.chengtao.utils.NodeUtils;
+
+public class Composition {
+
+	public static void main(String[] args) {
+		
+	}
+}

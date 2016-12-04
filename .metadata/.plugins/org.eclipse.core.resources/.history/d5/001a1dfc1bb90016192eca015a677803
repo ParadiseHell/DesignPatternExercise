@@ -1,0 +1,32 @@
+package com.chengtao.commad;
+
+import java.util.HashMap;
+
+/**
+ * 指令类，在这里定义各种指令
+ * @author ChengTao
+ *
+ */
+public class Command {
+	private static Command instance = null;
+	private HashMap<String, String> cmds = new HashMap<>();
+	
+	private Command(){
+		initCommands();
+	}
+	
+	private void initCommands() {
+		
+	}
+
+	public static Command getInstance() {
+		if (instance == null) {
+			synchronized (Command.class) {
+				instance = new Command();
+			}
+		}
+		return instance;
+	}
+	
+	
+}

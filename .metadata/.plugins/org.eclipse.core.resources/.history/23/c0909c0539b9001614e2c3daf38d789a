@@ -1,0 +1,8 @@
+package com.chengtao.main;
+
+public class Composition {
+	private final static String TIP = "";
+	public static void main(String[] args) {
+		
+	}
+}

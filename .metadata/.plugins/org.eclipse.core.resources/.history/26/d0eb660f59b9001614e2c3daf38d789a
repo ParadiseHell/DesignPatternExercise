@@ -1,0 +1,9 @@
+package com.chengtao.commad;
+
+public class DepthCommand extends AbsCommand{
+	
+	@Override
+	public void execute(String arg) {
+		
+	}
+}

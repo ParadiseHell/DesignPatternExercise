@@ -1,0 +1,13 @@
+package com.chengtao.commad;
+
+import com.chengtao.entity.ChinaNode;
+
+public class AncestorsCommand extends AbsCommand{
+
+	@Override
+	public void execute(String arg) {
+		ChinaNode node = getSearchNode(arg);
+		
+	}
+
+}

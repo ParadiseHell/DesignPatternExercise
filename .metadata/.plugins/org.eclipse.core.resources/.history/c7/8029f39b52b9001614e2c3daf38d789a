@@ -1,0 +1,30 @@
+package com.chengtao.commad;
+
+import com.chengtao.entity.ChinaNode;
+import com.chengtao.iterator.CompositeIterator;
+import com.chengtao.utils.FileUtils;
+import com.chengtao.utils.NodeUtils;
+
+public class LayerCommand extends AbsCommand{
+
+	@Override
+	public void execute(String arg) {
+		CompositeIterator iterator = NodeUtils.getNodeIterator(FileUtils.readTreeInfoFromFile());
+		ChinaNode node = null;
+		while(iterator.hasNext()){
+			if (iterator.next().getSelfName().equals(arg)) {
+				node = iterator.next();
+			}
+		}
+		if (node == null) {
+			System.out.println("输入的节点名称错误");
+		}else {
+			ChinaNode pNode = node;
+			int layer = 0;
+			while((pNode = pNode.getParent()) != null){
+				layer++;
+			}
+			System.out.println("处在树的第"+layer+"层。");
+		}
+	}
+}

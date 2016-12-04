@@ -1,0 +1,10 @@
+package com.chengtao.commad;
+
+/**
+ * 
+ * @author ChengTao
+ *
+ */
+public abstract class AbsCommand {
+	public abstract void execute(String arg);
+}

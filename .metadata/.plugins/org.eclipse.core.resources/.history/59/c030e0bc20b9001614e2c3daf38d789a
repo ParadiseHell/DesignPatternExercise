@@ -1,0 +1,69 @@
+package com.chengtao.commad;
+
+import java.util.HashMap;
+
+/**
+ * Command class which to define all commands here
+ * @author ChengTao
+ *
+ */
+public class Command {
+	private static Command instance = null;
+	private HashMap<String, String> cmds = new HashMap<>();
+	
+	private Command(){
+		initCommands();
+	}
+	
+	/**
+	 * 初始化指令，将指令添加到cmds中
+	 */
+	private void initCommands() {
+		cmds.put("layer", LayerCommand.class.getPackage().getName());
+		cmds.put("depth", "");
+		cmds.put("children", "");
+		cmds.put("ancestors", "");
+		cmds.put("subtree", "");
+	}
+
+	public static Command getInstance() {
+		if (instance == null) {
+			synchronized (Command.class) {
+				instance = new Command();
+			}
+		}
+		return instance;
+	}
+	
+	public String getCommands() {
+		String cmdStr = "";
+		for(String cmd : cmds.keySet()){
+			cmdStr += (cmd + "; ");
+		}
+		return cmdStr;
+	}
+	
+	/**
+	 * execute command from client
+	 * @param cmdName
+	 * @param arg
+	 */
+	public void execute(String cmdName,String arg) {
+		if (!cmds.containsKey(cmdName)) {
+			System.out.println("");
+			return;
+		}
+		try {
+			try {
+				AbsCommand command = (AbsCommand) Class.forName(cmds.get(cmdName)).newInstance();
+				command.execute(arg);
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+}

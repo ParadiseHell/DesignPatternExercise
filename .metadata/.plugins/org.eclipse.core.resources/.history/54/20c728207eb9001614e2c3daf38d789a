@@ -1,0 +1,33 @@
+package com.chengtao.commad;
+
+import com.chengtao.entity.ChinaNode;
+import com.chengtao.iterator.CompositeIterator;
+import com.chengtao.utils.NodeUtils;
+
+public class SubtreeCommand extends AbsCommand{
+
+	@Override
+	public void execute(String arg) {
+		ChinaNode node = getSearchNode(arg);
+		if (NodeNotNull(node)) {
+			int cureentLayer = node.getLayer();
+			CompositeIterator iterator = NodeUtils.getNodeIterator(node);
+			boolean isFirst = true;
+			while (iterator.hasNext()) {
+				ChinaNode chinaNode = iterator.next();
+				if (chinaNode.getLayer() != cureentLayer) {
+					System.out.println();
+					cureentLayer = chinaNode.getLayer();
+				}
+				if (chinaNode.getLayer() == cureentLayer) {
+					if (!isFirst) {
+						System.out.print(", ");
+					}
+				}
+				System.out.print(chinaNode.getSelfName());
+			}
+			System.out.println();
+		}
+	}
+
+}

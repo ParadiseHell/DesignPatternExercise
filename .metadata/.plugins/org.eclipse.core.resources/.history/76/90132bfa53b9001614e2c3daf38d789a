@@ -1,0 +1,31 @@
+package com.chengtao.commad;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.chengtao.entity.ChinaNode;
+import com.chengtao.iterator.CompositeIterator;
+import com.chengtao.utils.FileUtils;
+import com.chengtao.utils.NodeUtils;
+
+public class ChildrenCommand extends AbsCommand{
+
+	@Override
+	public void execute(String arg) {
+		CompositeIterator iterator = NodeUtils.getNodeIterator(FileUtils.readTreeInfoFromFile());
+		ChinaNode node = null;
+		while (iterator.hasNext()) {
+			if (iterator.next().getSelfName().equals(arg)) {
+				node = iterator.next();
+			}
+		}
+		if (node == null) {
+			System.out.println("输入的节点名称错误");
+		}else {
+			for (Iterator<ChinaNode> iterator2 : node.getIterator()) {
+				
+			}
+		}
+	}
+
+}

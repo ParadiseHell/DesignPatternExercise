@@ -1,0 +1,20 @@
+package com.chengtao.commad;
+
+import com.chengtao.entity.ChinaNode;
+import com.chengtao.iterator.CompositeIterator;
+import com.chengtao.utils.NodeUtils;
+
+public class DepthCommand extends AbsCommand{
+	
+	@Override
+	public void execute(String arg) {
+		ChinaNode node = getSearchNode(arg);
+		if (NodeNotNull(node)) {
+			CompositeIterator iterator = NodeUtils.getOtherNodeIterator(node);
+			ChinaNode last = null;
+			while (iterator.hasNext()) {
+				last = iterator.next();
+			}
+		}
+	}
+}

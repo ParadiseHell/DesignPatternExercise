@@ -1,0 +1,16 @@
+package com.chengtao.commad;
+
+import com.chengtao.entity.ChinaNode;
+
+/**
+ * 
+ * @author ChengTao
+ *
+ */
+public abstract class AbsCommand {
+	public abstract void execute(String arg);
+	
+	protected ChinaNode getSearchNode(String arg){
+		
+	}
+}

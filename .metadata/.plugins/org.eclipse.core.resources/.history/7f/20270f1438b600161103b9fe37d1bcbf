@@ -1,0 +1,30 @@
+package com.chengtao.entity;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * the entity to define the tree node
+ * @author ChengTao
+ *
+ */
+public class ChinaNode {
+	private String name;
+	ArrayList<ChinaNode> children = new ArrayList<>();
+	
+	public ChinaNode(){
+		
+	}
+	
+	public ChinaNode(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public Iterator<ChinaNode> getIterator(){
+		return children.iterator();
+	}
+}

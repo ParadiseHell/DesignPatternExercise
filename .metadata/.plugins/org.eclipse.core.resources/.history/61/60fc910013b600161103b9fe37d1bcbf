@@ -1,0 +1,10 @@
+package com.chengtao.entity;
+
+/**
+ * 
+ * @author ChengTao
+ *
+ */
+public class NodeInfo {
+	private String childrenName;
+}

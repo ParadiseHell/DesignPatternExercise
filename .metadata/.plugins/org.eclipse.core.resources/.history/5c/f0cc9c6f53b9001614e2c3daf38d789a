@@ -1,0 +1,10 @@
+package com.chengtao.commad;
+
+public class ChildrenCommand extends AbsCommand{
+
+	@Override
+	public void execute(String arg) {
+		
+	}
+
+}

@@ -1,0 +1,41 @@
+package com.chengtao.iterator;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import com.chengtao.entity.ChinaNode;
+
+/**
+ * 组合模式迭代器
+ * @author ChengTao
+ *
+ */
+public class CompositeIterator implements Iterator<ChinaNode>{
+	
+	private Queue<Iterator<ChinaNode>> queue = new LinkedList<>();
+	
+	public CompositeIterator(Iterator<ChinaNode> iterator) {
+		queue.add(iterator);
+	}
+
+	@Override
+	public boolean hasNext() {
+		if (queue.isEmpty()) {
+			return false;
+		}
+		Iterator<ChinaNode> iterator = queue.peek();
+		if (!iterator.hasNext()) {
+			
+		}else {
+			
+		}
+		return false;
+	}
+
+	@Override
+	public ChinaNode next() {
+		return null;
+	}
+
+}

@@ -1,0 +1,47 @@
+package com.chengtao.commad;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+ * 指令类，在这里定义各种指令
+ * @author ChengTao
+ *
+ */
+public class Command {
+	private static Command instance = null;
+	private HashMap<String, String> cmds = new HashMap<>();
+	
+	private Command(){
+		initCommands();
+	}
+	
+	/**
+	 * 初始化指令，将指令添加到cmds中
+	 */
+	private void initCommands() {
+		cmds.put("layer", "");
+		cmds.put("depth", "");
+		cmds.put("children", "");
+		cmds.put("ancestors", "");
+		cmds.put("subtree", "");
+		cmds.put("q", "");
+	}
+
+	public static Command getInstance() {
+		if (instance == null) {
+			synchronized (Command.class) {
+				instance = new Command();
+			}
+		}
+		return instance;
+	}
+	
+	public String getCommands() {
+		String cmdStr = "";
+		for(String cmd :cmds.keySet()){
+			
+		}
+	}
+}
